@@ -1,0 +1,8 @@
+#   Set up RACC as an external library
+
+include("${CFACC_DIR}/cmake/DepsRACC.txt")
+include_directories("${CFACC_DIR}")
+add_library(racc STATIC IMPORTED)
+set_target_properties(cfacc PROPERTIES
+    IMPORTED_LOCATION "${CFACC_DIR}/lib/cfacc.a")
+

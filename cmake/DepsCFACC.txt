@@ -1,0 +1,19 @@
+#
+#   Set up third-party dependencies for CFACC code
+#
+
+find_package(OpenMP)
+
+if(ARMADILLO_PATH)
+    set(CMAKE_PREFIX_PATH_SAVED ${CMAKE_PREFIX_PATH})
+    set(CMAKE_PREFIX_PATH "${ARMADILLO_PATH}/usr" "${ARMADILLO_PATH}/usr/local")
+endif(ARMADILLO_PATH)
+find_package(Armadillo REQUIRED)
+if(ARMADILLO_FOUND)
+    set(WITH_ARMADILLO TRUE)
+endif(ARMADILLO_FOUND)
+if(CMAKE_PREFIX_PATH_SAVED)
+    set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH_SAVED})
+    unset(CMAKE_PREFIX_PATH_SAVED)
+endif(CMAKE_PREFIX_PATH_SAVED)
+
