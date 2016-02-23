@@ -6,7 +6,7 @@
 #include <vector>
 #include <iostream>
 
-namespace cfrac {
+namespace cfacc {
 
 /**  \brief a class for creating a continued fraction interpolant of some data
  **/

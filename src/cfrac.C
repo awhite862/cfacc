@@ -1,6 +1,6 @@
 #include "cfrac.h"
 
-namespace cfrac {
+namespace cfacc {
 
 cfrac::cfrac(
     std::vector<std::complex<double> > &d,
