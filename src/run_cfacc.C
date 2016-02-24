@@ -43,15 +43,15 @@ void run_cfacc(jobinfo &ji, std::ostream &os) {
     os << "Guess: " << std::real(ji.guess) << " -  i * " << -std::imag(ji.guess) << std::endl;
 
     os << " Performing Newton's method to find zeros " << std::endl;
-    os << " ++++++++++++++++++++++++++++++++++++++++ " << std::endl;
-    os << " Iteration #         function value       " << std::endl;
-    os << " ---------------------------------------- " << std::endl;
+    os << " +++++++++++++++++++++++++++++++++++++++++++++++++++++++ " << std::endl;
+    os << " Iteration #         function value         error        " << std::endl;
+    os << " ------------------------------------------------------- " << std::endl;
 
     size_t max_iter = 100;
-    double conv = 1e-6;
+    double conv = 1e-8;
 
     std::complex<double> x = std::complex<double>(0.0,-1.0) * std::sqrt(ji.guess);
-    os << " x: " << x << std::endl;
+    //os << " x: " << x << std::endl;
     size_t i = 0;
     for (i = 0; i < max_iter; i++) {
         std::complex<double> f = cf.compute_value(x);
@@ -65,9 +65,11 @@ void run_cfacc(jobinfo &ji, std::ostream &os) {
         //    os << "Warning: stepsize halved!" << std::endl;
         //}
         x = xnew;
-        os << "  " << i + 1 << "      " << newf << "    " << std::abs(newf) << "   " << x << std::endl;
+        os << std::setw(8) << i + 1 << std::setw(30) << newf 
+            << std::setw(20) << std::abs(newf) << std::endl;
         if (std::abs(newf) < conv) break;
     }
+    os << " ------------------------------------------------------- " << std::endl;
     if (i == max_iter) {
         os << "  Newton's method failed to converge" << std::endl;
     }
@@ -80,7 +82,7 @@ void run_cfacc(jobinfo &ji, std::ostream &os) {
     double pos = b*b - a2*a2;
     double wid = 4.0 * a2 * b;
     
-    os << x << std::endl;
+    //os << x << std::endl;
     os << " Resonance position:  " << std::fixed << std::setprecision(14) << pos << std::endl;
     os << " Resonance width:     " << wid << std::endl;
     print_end_banner(os);
