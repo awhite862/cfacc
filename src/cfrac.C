@@ -49,4 +49,31 @@ std::complex<double> cfrac::compute_value(std::complex<double> in) {
     return coeffs[n - 1] * f2;
 }
 
+std::complex<double> cfrac::compute_analytic_derivative(
+    std::complex<double> in) {
+
+    std::complex<double> term = coeffs[n - 2] * (in - domain[n - 2]);
+    std::complex<double> toim1 = 1.0 / (1.0 + term);
+    std::complex<double> cprime = -coeffs[n - 2] * toim1 * toim1;
+    for (int i = n - 3; i >= 0; i--) {
+        term = coeffs[i] * (in - domain[i]) * toim1;
+        std::complex<double> toim2 = 1.0 / (1.0 + term);
+        cprime = -toim2 * toim2 * coeffs[i] * (toim1 + (in - domain[i]) * cprime); 
+        toim1 = toim2; 
+    }
+    return coeffs[n - 1] * cprime; 
+}
+        
+std::complex<double> cfrac::compute_fd_derivative(
+    std::complex<double> in, double stepsize) {
+
+    std::complex<double> plus = in + stepsize / 2.0;
+    std::complex<double> minus = in - stepsize / 2.0;
+
+    std::complex<double> forward = compute_value(plus);
+    std::complex<double> back = compute_value(minus);
+
+    return (forward - back) / stepsize;
+}
+
 } // namespace cfrac

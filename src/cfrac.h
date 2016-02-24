@@ -22,6 +22,12 @@ class cfrac {
         std::complex<double> compute_value(
             std::complex<double> in);
 
+        std::complex<double> compute_fd_derivative(
+            std::complex<double> in, double stepsize = 1e-6);
+
+        std::complex<double> compute_analytic_derivative(
+            std::complex<double> in);
+
     private:
         size_t n;
         std::vector<std::complex<double> > coeffs;

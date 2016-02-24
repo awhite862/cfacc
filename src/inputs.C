@@ -14,7 +14,7 @@ void get_input_data(const char * filename, jobinfo &ji) {
     double rtemp, itemp;
     fs >> rtemp;
     fs >> itemp;
-    ji.guess = std::complex<double>(rtemp, itemp);
+    ji.guess = std::complex<double>(rtemp, -itemp / 2.0);
 
     arma::vec ltemp(max_input_size);
     arma::vec ktemp(max_input_size);
