@@ -48,7 +48,7 @@ void run_cfacc(jobinfo &ji, std::ostream &os) {
     os << " ------------------------------------------------------- " << std::endl;
 
     size_t max_iter = 100;
-    double conv = 1e-8;
+    double conv = 1e-12;
 
     std::complex<double> x = std::complex<double>(0.0,-1.0) * std::sqrt(ji.guess);
     //os << " x: " << x << std::endl;
@@ -76,6 +76,8 @@ void run_cfacc(jobinfo &ji, std::ostream &os) {
     else {
         os << "  Newton's method converged" << std::endl;
     }
+    os << " kappa: " << x << std::endl;
+    os << " k:     " << std::complex<double>(0.0,1.0) * x << std::endl;
 
     double a2 = -1.0 * std::real(x);
     double b = -1.0 * std::imag(x);
