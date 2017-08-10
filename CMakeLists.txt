@@ -13,7 +13,7 @@ set(CMAKE_INSTALL_PREFIX "${CMAKE_CURRENT_SOURCE_DIR}")
 enable_testing()
 add_subdirectory(src)
 add_subdirectory(tests)
-add_executable(cfacc++ src/main.C)
+add_executable(cfacc++ src/main.cpp)
 add_dependencies(cfacc++ cfacc)
 get_filename_component(ARMADILLO_LIBDIR "${ARMADILLO_LIBRARIES}"
     DIRECTORY)

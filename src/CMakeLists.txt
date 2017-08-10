@@ -1,7 +1,7 @@
 set(SRC
-    cfrac.C
-    inputs.C
-    run_cfacc.C
+    cfrac.cpp
+    inputs.cpp
+    run_cfacc.cpp
 )
 
 add_library(cfacc ${SRC})
