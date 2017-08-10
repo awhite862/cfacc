@@ -15,7 +15,7 @@ namespace {
 void print_start_banner(std::ostream &os) {
 
     os << " ======================================================= " << std::endl;
-    os << "|          Regularized analytic continuation            |" << std::endl;
+    os << "|        continued fraction analytic continuation       |" << std::endl;
     os << "|                  calculation manager                  |" << std::endl;
     os << "|                                                       |" << std::endl;
     os << "|                written by Alec White                  |" << std::endl;
@@ -25,7 +25,6 @@ void print_start_banner(std::ostream &os) {
 void print_end_banner(std::ostream &os) {
 
     os << " ======================================================= " << std::endl;
-    os << "|          Regularized analytic continuation            |" << std::endl;
     os << "|                calculation completed                  |" << std::endl;
     os << " ======================================================= " << std::endl << std::endl;
 }
