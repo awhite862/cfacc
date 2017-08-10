@@ -35,6 +35,6 @@ class cfrac {
 
 };
 
-} // namespace cfrac
+} // namespace cfacc
 
 #endif  //  CFRAC_H
