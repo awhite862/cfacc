@@ -1,3 +1,9 @@
+/**
+ * Copyright (C) 2017, Alec F. White
+ *
+ * Licensed under the 2-Clause BSD License. See the LICENSE.txt 
+ * file released with this work for additional information.
+ **/
 #ifndef RACC_JOBINFO_H
 #define RACC_JOBINFO_H
 
